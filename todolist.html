@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+  <style>
+    .complete {
+      text-decoration: line-through;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <p onclick="toggleComplete(this)">Pay bills</p>
+  <p onclick="toggleComplete(this)">Wash car</p>
+  <p onclick="toggleComplete(this)">Get laundry</p>
+  <button onclick="hideCompletedTasks()">Hide Completed Tasks</button>
+  <button onclick="showAllTasks()">Show All Tasks</button>
+
+  <h3>Number of complete items: <span>0</span> </h3>
+
+  <script>
+
+    function toggleComplete(ptag) {
+      // add complete class to whatever we clicked on
+      ptag.classList.toggle('complete');
+      // find out how many things are in our "complete" array
+      // change our span to match the length of our complete array
+      var completedTasks = document.querySelectorAll('.complete');
+      console.log(completedTasks);
+      var countTag = document.querySelector('span');
+      countTag.innerHTML = completedTasks.length;
+    }
+
+    function hideCompletedTasks() {
+      // find all tasks that have been marked with complete class
+      var completedTasks = document.querySelectorAll('.complete');
+      console.log(completedTasks);
+      // loop through all complete tasks and assign the hidden class to each one
+      for (var i = 0; i < completedTasks.length; i++) {
+        var completeTask = completedTasks[i];
+        completeTask.classList.add('hidden');
+      }
+    }
+
+    function showAllTasks() {
+      var completedTasks = document.querySelectorAll('.complete');
+      console.log(completedTasks);
+      for (var i = 0; i < completedTasks.length; i++) {
+        var completeTask = completedTasks[i];
+        completeTask.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
