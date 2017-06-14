@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+
+</head>
+<body>
+  <h1 onmousedown="toggleDetails()">Alexander Hamilton</h1>
+  <p>Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
+
+  <button onclick="changeHeader()">Turn Header Random Color!</button>
+
+  <script>
+    function toggleDetails() {
+      var ptag = document.querySelector('p');
+      console.log(ptag);
+      ptag.classList.toggle('hidden');
+    }
+
+    function showCoordinates(event){
+      console.log(event.clientX, event.clientY);
+    }
+
+    function changeHeader() {
+      var h1tag = document.querySelector('h1');
+      var randomColor = '#';
+      var symbols = '0123456789ABCDEF';
+      for (var i = 0; i< 6; i++) {
+        randomColor += symbols[Math.floor(Math.random()*16)];
+        console.log(randomColor);
+      }
+      h1tag.style.color = randomColor;
+    }
+  </script>
+
+</body>
+</html>
